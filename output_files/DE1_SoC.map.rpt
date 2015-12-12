@@ -1,0 +1,1144 @@
+Analysis & Synthesis report for DE1_SoC
+Fri Dec 11 12:33:30 2015
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[31].m"
+ 10. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[30].m"
+ 11. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[29].m"
+ 12. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[28].m"
+ 13. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[27].m"
+ 14. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[26].m"
+ 15. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[25].m"
+ 16. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[24].m"
+ 17. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[23].m"
+ 18. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[22].m"
+ 19. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[21].m"
+ 20. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[20].m"
+ 21. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[19].m"
+ 22. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[18].m"
+ 23. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[17].m"
+ 24. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[16].m"
+ 25. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[15].m"
+ 26. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[14].m"
+ 27. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[13].m"
+ 28. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[12].m"
+ 29. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[11].m"
+ 30. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[10].m"
+ 31. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[9].m"
+ 32. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[8].m"
+ 33. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[7].m"
+ 34. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[6].m"
+ 35. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[5].m"
+ 36. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[4].m"
+ 37. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[3].m"
+ 38. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[2].m"
+ 39. Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[1].m"
+ 40. Port Connectivity Checks: "ALU:ALU3"
+ 41. Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rtdatasel2"
+ 42. Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rtdatasel1"
+ 43. Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rsdatasel2"
+ 44. Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rsdatasel1"
+ 45. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[31].r"
+ 46. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[30].r"
+ 47. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[29].r"
+ 48. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[28].r"
+ 49. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[27].r"
+ 50. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[26].r"
+ 51. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[25].r"
+ 52. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[24].r"
+ 53. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[23].r"
+ 54. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[22].r"
+ 55. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[21].r"
+ 56. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[20].r"
+ 57. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[19].r"
+ 58. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[18].r"
+ 59. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[17].r"
+ 60. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[16].r"
+ 61. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[15].r"
+ 62. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[14].r"
+ 63. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[13].r"
+ 64. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[12].r"
+ 65. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[11].r"
+ 66. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[10].r"
+ 67. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[9].r"
+ 68. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[8].r"
+ 69. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[7].r"
+ 70. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[6].r"
+ 71. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[5].r"
+ 72. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[4].r"
+ 73. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[3].r"
+ 74. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[2].r"
+ 75. Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[1].r"
+ 76. Port Connectivity Checks: "checkDaDb:checkData"
+ 77. Port Connectivity Checks: "InstructionMem:inst"
+ 78. Port Connectivity Checks: "fetchUnit:fetchU|adder30:ad|adder:eachbit[29].add"
+ 79. Port Connectivity Checks: "fetchUnit:fetchU|adder30:ad"
+ 80. Port Connectivity Checks: "fetchUnit:fetchU|mux2_r:carIn"
+ 81. Port Connectivity Checks: "fetchUnit:fetchU|mux30:mux1"
+ 82. Post-Synthesis Netlist Statistics for Top Partition
+ 83. Elapsed Time Per Partition
+ 84. Analysis & Synthesis Messages
+ 85. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Dec 11 12:33:29 2015       ;
+; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Full Version ;
+; Revision Name                   ; DE1_SoC                                     ;
+; Top-level Entity Name           ; datapath                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 2                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; datapath           ; DE1_SoC            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; State Machine Processing                                                        ; User-Encoded       ; Auto               ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 24          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-24        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path             ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------+---------+
+; SE.sv                            ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/SE.sv             ;         ;
+; regfile.sv                       ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/regfile.sv        ;         ;
+; InstructionMem.sv                ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/InstructionMem.sv ;         ;
+; datapath.sv                      ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/datapath.sv       ;         ;
+; dataMem.sv                       ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/dataMem.sv        ;         ;
+; control.sv                       ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/control.sv        ;         ;
+; ALU.sv                           ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/ALU.sv            ;         ;
+; forwardingUnit.sv                ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/forwardingUnit.sv ;         ;
+; fetchUnit.sv                     ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/fetchUnit.sv      ;         ;
+; checkIfBranch.sv                 ; yes             ; User SystemVerilog HDL File  ; U:/E E 471/Lab 4 FINAL/checkIfBranch.sv  ;         ;
+; test09.out                       ; yes             ; Auto-Found File              ; U:/E E 471/Lab 4 FINAL/test09.out        ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimate of Logic utilization (ALMs needed) ; 0     ;
+;                                             ;       ;
+; Combinational ALUT usage for logic          ; 0     ;
+;     -- 7 input functions                    ; 0     ;
+;     -- 6 input functions                    ; 0     ;
+;     -- 5 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 0     ;
+;     -- <=3 input functions                  ; 0     ;
+;                                             ;       ;
+; Dedicated logic registers                   ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 2     ;
+;                                             ;       ;
+; Total DSP Blocks                            ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 2     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                       ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
+; |datapath                  ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 2    ; 0            ; |datapath           ; work         ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[31].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[30].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[29].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[28].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[27].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[26].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[25].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[24].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[23].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[22].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[21].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[20].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[19].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[18].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[17].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[16].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[15].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[14].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[13].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[12].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[11].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[10].m" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[9].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[8].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[7].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[6].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[5].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[4].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[3].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[2].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3|mux2_alu:eachMux[1].m" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU3"                                                                               ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Cout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Z        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rtdatasel2" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; d0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rtdatasel1" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; d0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rsdatasel2" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; d0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "forwardingUnit:fwrd|mux2_r:rsdatasel1" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; d0   ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[31].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[30].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[29].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[28].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[27].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[26].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[25].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[24].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[23].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[22].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[21].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[20].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[19].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[18].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[17].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[16].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[15].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[14].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[13].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[12].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[11].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[10].r" ;
++-------+-------+----------+-------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                           ;
++-------+-------+----------+-------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                      ;
++-------+-------+----------+-------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[9].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[8].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[7].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[6].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[5].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[4].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[3].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[2].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:reg1|register_module:register1|register_32:eachbit[1].r" ;
++-------+-------+----------+------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                          ;
++-------+-------+----------+------------------------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                                     ;
++-------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "checkDaDb:checkData"                                                                     ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; DataEqual ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "InstructionMem:inst" ;
++---------------+-------+----------+--------------+
+; Port          ; Type  ; Severity ; Details      ;
++---------------+-------+----------+--------------+
+; address[1..0] ; Input ; Info     ; Stuck at GND ;
++---------------+-------+----------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fetchUnit:fetchU|adder30:ad|adder:eachbit[29].add"                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fetchUnit:fetchU|adder30:ad"                                                        ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "fetchUnit:fetchU|mux2_r:carIn" ;
++------+-------+----------+---------------------------------+
+; Port ; Type  ; Severity ; Details                         ;
++------+-------+----------+---------------------------------+
+; d0   ; Input ; Info     ; Stuck at VCC                    ;
+; d1   ; Input ; Info     ; Stuck at GND                    ;
++------+-------+----------+---------------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "fetchUnit:fetchU|mux30:mux1" ;
++------+-------+----------+-------------------------------+
+; Port ; Type  ; Severity ; Details                       ;
++------+-------+----------+-------------------------------+
+; A    ; Input ; Info     ; Stuck at GND                  ;
++------+-------+----------+-------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 2                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+    Info: Processing started: Fri Dec 11 12:31:40 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC -c DE1_SoC
+Info (11104): Parallel Compilation has detected 24 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 12 of the 12 physical processors detected instead.
+Info (12021): Found 3 design units, including 3 entities, in source file se.sv
+    Info (12023): Found entity 1: SE
+    Info (12023): Found entity 2: SE30
+    Info (12023): Found entity 3: SE0
+Info (12021): Found 19 design units, including 19 entities, in source file regfile.sv
+    Info (12023): Found entity 1: mux2_1
+    Info (12023): Found entity 2: mux2_r
+    Info (12023): Found entity 3: mux4_1
+    Info (12023): Found entity 4: mux8_1
+    Info (12023): Found entity 5: mux32_1
+    Info (12023): Found entity 6: mux32_32
+    Info (12023): Found entity 7: D_FF
+    Info (12023): Found entity 8: register
+    Info (12023): Found entity 9: register_32
+    Info (12023): Found entity 10: register_module
+    Info (12023): Found entity 11: register32
+    Info (12023): Found entity 12: register16
+    Info (12023): Found entity 13: register5
+    Info (12023): Found entity 14: register2
+    Info (12023): Found entity 15: dec2_4
+    Info (12023): Found entity 16: dec3_8
+    Info (12023): Found entity 17: dec5_32
+    Info (12023): Found entity 18: regfile
+    Info (12023): Found entity 19: regfile_testbench
+Info (12021): Found 1 design units, including 1 entities, in source file instructionmem.sv
+    Info (12023): Found entity 1: InstructionMem
+Info (12021): Found 2 design units, including 2 entities, in source file datapath.sv
+    Info (12023): Found entity 1: datapath
+    Info (12023): Found entity 2: datapath_testbench
+Info (12021): Found 1 design units, including 1 entities, in source file datamem.sv
+    Info (12023): Found entity 1: dataMem
+Info (12021): Found 1 design units, including 1 entities, in source file control.sv
+    Info (12023): Found entity 1: control
+Info (12021): Found 9 design units, including 9 entities, in source file alu.sv
+    Info (12023): Found entity 1: ALU
+    Info (12023): Found entity 2: adder
+    Info (12023): Found entity 3: bit1
+    Info (12023): Found entity 4: mux2_alu
+    Info (12023): Found entity 5: mux4_alu
+    Info (12023): Found entity 6: zero
+    Info (12023): Found entity 7: zero_testbench
+    Info (12023): Found entity 8: adder32
+    Info (12023): Found entity 9: ALU_testbench
+Info (12021): Found 3 design units, including 3 entities, in source file forwardingunit.sv
+    Info (12023): Found entity 1: forwardingUnit
+    Info (12023): Found entity 2: chooseData
+    Info (12023): Found entity 3: mux32
+Info (12021): Found 4 design units, including 4 entities, in source file fetchunit.sv
+    Info (12023): Found entity 1: fetchUnit
+    Info (12023): Found entity 2: proCoun
+    Info (12023): Found entity 3: adder30
+    Info (12023): Found entity 4: mux30
+Info (12021): Found 2 design units, including 2 entities, in source file checkifbranch.sv
+    Info (12023): Found entity 1: checkIfbranch
+    Info (12023): Found entity 2: checkDaDb
+Warning (10236): Verilog HDL Implicit Net warning at regfile.sv(7): created implicit net for "nsel"
+Warning (10236): Verilog HDL Implicit Net warning at regfile.sv(17): created implicit net for "notA"
+Warning (10236): Verilog HDL Implicit Net warning at regfile.sv(18): created implicit net for "y0"
+Warning (10236): Verilog HDL Implicit Net warning at regfile.sv(19): created implicit net for "y1"
+Warning (10236): Verilog HDL Implicit Net warning at ALU.sv(83): created implicit net for "nsel"
+Info (12127): Elaborating entity "datapath" for the top level hierarchy
+Info (12128): Elaborating entity "fetchUnit" for hierarchy "fetchUnit:fetchU"
+Info (12128): Elaborating entity "SE30" for hierarchy "fetchUnit:fetchU|SE30:signexten"
+Info (12128): Elaborating entity "mux30" for hierarchy "fetchUnit:fetchU|mux30:mux1"
+Info (12128): Elaborating entity "mux2_r" for hierarchy "fetchUnit:fetchU|mux30:mux1|mux2_r:eachMux2[0].m"
+Info (12128): Elaborating entity "adder30" for hierarchy "fetchUnit:fetchU|adder30:ad"
+Info (12128): Elaborating entity "adder" for hierarchy "fetchUnit:fetchU|adder30:ad|adder:add1"
+Info (12128): Elaborating entity "proCoun" for hierarchy "fetchUnit:fetchU|proCoun:pro"
+Info (12128): Elaborating entity "D_FF" for hierarchy "fetchUnit:fetchU|proCoun:pro|D_FF:eachDFF[0].d"
+Info (12128): Elaborating entity "InstructionMem" for hierarchy "InstructionMem:inst"
+Warning (10850): Verilog HDL warning at InstructionMem.sv(46): number of words (57) in memory file does not match the number of elements in the address range [0:1023]
+Info (12128): Elaborating entity "checkIfbranch" for hierarchy "checkIfbranch:check"
+Info (12128): Elaborating entity "register32" for hierarchy "register32:regi32"
+Info (12128): Elaborating entity "control" for hierarchy "control:controlU"
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "RegDst", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "ALUSrc", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "MemToReg", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "RegWr", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "MemWr", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "Jump", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "JumpR", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "ALUcntrl", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "readRs", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at control.sv(6): inferring latch(es) for variable "readRt", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "readRt" at control.sv(6)
+Info (10041): Inferred latch for "readRs" at control.sv(6)
+Info (10041): Inferred latch for "ALUcntrl[0]" at control.sv(6)
+Info (10041): Inferred latch for "ALUcntrl[1]" at control.sv(6)
+Info (10041): Inferred latch for "JumpR" at control.sv(6)
+Info (10041): Inferred latch for "Jump" at control.sv(6)
+Info (10041): Inferred latch for "MemWr" at control.sv(6)
+Info (10041): Inferred latch for "RegWr" at control.sv(6)
+Info (10041): Inferred latch for "MemToReg" at control.sv(6)
+Info (10041): Inferred latch for "ALUSrc" at control.sv(6)
+Info (10041): Inferred latch for "RegDst" at control.sv(6)
+Info (12128): Elaborating entity "checkDaDb" for hierarchy "checkDaDb:checkData"
+Info (12128): Elaborating entity "register5" for hierarchy "register5:regdstto2"
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:reg1"
+Info (12128): Elaborating entity "dec5_32" for hierarchy "regfile:reg1|dec5_32:dec"
+Info (12128): Elaborating entity "dec2_4" for hierarchy "regfile:reg1|dec5_32:dec|dec2_4:m0"
+Info (12128): Elaborating entity "dec3_8" for hierarchy "regfile:reg1|dec5_32:dec|dec3_8:m1"
+Info (12128): Elaborating entity "register_module" for hierarchy "regfile:reg1|register_module:register1"
+Info (12128): Elaborating entity "register_32" for hierarchy "regfile:reg1|register_module:register1|register_32:eachbit[1].r"
+Info (12128): Elaborating entity "register" for hierarchy "regfile:reg1|register_module:register1|register_32:eachbit[1].r|register:eachregister[0].r"
+Info (12128): Elaborating entity "mux32_32" for hierarchy "regfile:reg1|mux32_32:mux_1"
+Info (12128): Elaborating entity "mux32_1" for hierarchy "regfile:reg1|mux32_32:mux_1|mux32_1:eachbit[0].m"
+Info (12128): Elaborating entity "mux8_1" for hierarchy "regfile:reg1|mux32_32:mux_1|mux32_1:eachbit[0].m|mux8_1:m0"
+Info (12128): Elaborating entity "mux4_1" for hierarchy "regfile:reg1|mux32_32:mux_1|mux32_1:eachbit[0].m|mux8_1:m0|mux4_1:m0"
+Info (12128): Elaborating entity "mux2_1" for hierarchy "regfile:reg1|mux32_32:mux_1|mux32_1:eachbit[0].m|mux8_1:m0|mux4_1:m0|mux2_1:m0"
+Info (12128): Elaborating entity "forwardingUnit" for hierarchy "forwardingUnit:fwrd"
+Info (12128): Elaborating entity "chooseData" for hierarchy "forwardingUnit:fwrd|chooseData:chooseRs"
+Info (12128): Elaborating entity "mux32" for hierarchy "forwardingUnit:fwrd|mux32:rsdatasel1out"
+Info (12128): Elaborating entity "register2" for hierarchy "register2:alufrom2"
+Info (12128): Elaborating entity "SE" for hierarchy "SE:se32"
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU3"
+Info (12128): Elaborating entity "bit1" for hierarchy "ALU:ALU3|bit1:b"
+Info (12128): Elaborating entity "mux2_alu" for hierarchy "ALU:ALU3|bit1:b|mux2_alu:m"
+Info (12128): Elaborating entity "mux4_alu" for hierarchy "ALU:ALU3|bit1:b|mux4_alu:m1"
+Info (12128): Elaborating entity "zero" for hierarchy "ALU:ALU3|zero:z1"
+Info (12128): Elaborating entity "dataMem" for hierarchy "dataMem:datamem4"
+Info (144001): Generated suppressed messages file U:/E E 471/Lab 4 FINAL/output_files/DE1_SoC.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 822 megabytes
+    Info: Processing ended: Fri Dec 11 12:33:30 2015
+    Info: Elapsed time: 00:01:50
+    Info: Total CPU time (on all processors): 00:01:36
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in U:/E E 471/Lab 4 FINAL/output_files/DE1_SoC.map.smsg.
+
+

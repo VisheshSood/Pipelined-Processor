@@ -1,0 +1,77 @@
+module fetch(addr, tInstr, jumprAddr, zero, branch, jump, jumpR, imm16, reset, clk);
+	output [31:2] addr;
+	input [29:0] jumprAddr;
+	input [25:0] tInstr;
+	input [15:0] imm16;
+	input zero, branch, jump, jumpR, reset, clk;
+	wire [29:0] PC, regOut, addOut, mux1Out, imm16_SE, conOut, jumpOrNot;
+	wire branchSel, Cout, carryIn;
+ 
+	not n1 (notZero, zero);
+	and a0(branchSel, branch, notZero);
+	SE30 signexten(imm16_SE, imm16);
+	assign conOut = {PC[29:26], tInstr[25:0]};
+ 
+	mux30 mux1 (branchSel, 30'b0, imm16_SE, mux1Out);
+	mux2_r carIn (1'b1, 1'b0, branchSel,carryIn);
+	adder30 ad(.A(PC), .B(mux1Out), .Cin(carryIn), .Cout(Cout), .out(addOut));
+ 
+	mux30 muxJump(jump, addOut, conOut, jumpOrNot);			
+	mux30 muxJumpR(jumpR, jumpOrNot, jumprAddr, regOut);		
+ 
+	genvar m;
+	generate 	
+		for(m = 0; m < 30; m++) begin : eachaddr
+				buf bu(addr[31-m], PC[29-m]);
+		end
+	endgenerate
+	
+	proCoun pro(.out(PC), .in(regOut), .reset(reset), .clk(clk));
+	
+endmodule
+
+
+
+module proCoun(out, in, reset, clk);
+input [29:0] in;
+input reset, clk;
+output [29:0] out;
+
+genvar i;
+	generate 	
+		for(i = 0; i < 30; i++) begin : eachDFF
+			D_FF d(.q(out[i]), .d(in[i]), .reset(reset), .clk(clk));
+		end
+	endgenerate
+endmodule
+
+module adder30(A, B, Cin, Cout, out);
+input [29:0] A, B;
+input Cin;
+output [29:0] out;
+wire [29:0] tempC;
+output Cout;
+
+adder add1(.A(A[0]), .B(B[0]), .Cin(Cin), .Cout(tempC[0]), .S(out[0]));
+
+genvar i;
+	generate 	
+		for(i = 1; i < 30; i++) begin : eachbit
+			adder add(.A(A[i]), .B(B[i]), .Cin(tempC[i-1]), .Cout(tempC[i]), .S(out[i]));
+		end
+	endgenerate
+	
+endmodule
+
+module mux30 (S, A, B, Y);
+	input [29:0] A, B;
+	input S;
+	output [29:0]Y;
+	
+	genvar i;
+	generate
+		for (i=0; i<30; i++)begin : eachMux2
+			mux2_r m(A[i], B[i], S, Y[i]);
+		end
+	endgenerate
+endmodule 

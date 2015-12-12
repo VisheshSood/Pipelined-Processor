@@ -1,0 +1,18 @@
+Info (10281): Verilog HDL Declaration information at datapath.sv(6): object "RegDstTo2" differs only in case from object "regdstto2" in the same scope
+Info (10281): Verilog HDL Declaration information at datapath.sv(14): object "aluDataTo2" differs only in case from object "aluDatato2" in the same scope
+Info (10281): Verilog HDL Declaration information at datapath.sv(14): object "DaFrom2" differs only in case from object "Dafrom2" in the same scope
+Info (10281): Verilog HDL Declaration information at datapath.sv(14): object "DbFrom2" differs only in case from object "Dbfrom2" in the same scope
+Info (10281): Verilog HDL Declaration information at datapath.sv(15): object "ALUoutTo3" differs only in case from object "aluoutto3" in the same scope
+Info (10281): Verilog HDL Declaration information at datapath.sv(15): object "dataTo4" differs only in case from object "datato4" in the same scope
+Info (10281): Verilog HDL Declaration information at datapath.sv(10): object "RegWrFrom4" differs only in case from object "regwrfrom4" in the same scope
+Info (10281): Verilog HDL Declaration information at datapath.sv(6): object "RegDstFrom4" differs only in case from object "regdstfrom4" in the same scope
+Info (10281): Verilog HDL Declaration information at ALU.sv(4): object "B" differs only in case from object "b" in the same scope
+Info (10281): Verilog HDL Declaration information at forwardingUnit.sv(6): object "rsDataSel1" differs only in case from object "rsdatasel1" in the same scope
+Info (10281): Verilog HDL Declaration information at forwardingUnit.sv(6): object "rsDataSel2" differs only in case from object "rsdatasel2" in the same scope
+Info (10281): Verilog HDL Declaration information at forwardingUnit.sv(6): object "rtDataSel1" differs only in case from object "rtdatasel1" in the same scope
+Info (10281): Verilog HDL Declaration information at forwardingUnit.sv(6): object "rtDataSel2" differs only in case from object "rtdatasel2" in the same scope
+Warning (10034): Output port "Cout" at fetchUnit.sv(52) has no driver
+Warning (10030): Net "instrmem.data_a" at InstructionMem.sv(5) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "instrmem.waddr_a" at InstructionMem.sv(5) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "instrmem.we_a" at InstructionMem.sv(5) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "reset" at regfile.sv(119) has no driver or initial value, using a default initial value '0'

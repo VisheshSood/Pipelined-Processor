@@ -1,0 +1,146 @@
+module datapath(clk, reset);
+ input reset, clk;
+ reg [25:0] tInstr1;
+ reg [15:0] imm16,BranchImm16;
+ reg [5:0] Op, Func;
+ reg [4:0] Rs, Rt, Rd, RegDstFrom4, RegDstTo2,RegDstFrom2, RegDstFrom3;
+ reg [31:2] addr;
+ /*******************************************************************************************************************/
+ reg zero, jump, jumpR, RegWrFrom4, MemToRegFrom2, RegWrFrom2, MemWrFrom2, readRs, readRt,branchFrom1, branchTo1,
+ RegDst, ALUSrc, MemToRegTo2, RegWr, MemWr, XORi, Cout, overflow, Z, neg, MemToRegFrom3, RegWrFrom3, MemWrFrom3;
+ /*******************************************************************************************************************/
+ reg [31:0] instruction, instr1out, dataToStage2, address, Da, Db, dataFrom4, SE_1mm16, DbFrom2, DaFrom2, aluDataTo2, 
+ aluDataFrom2, ALUoutTo3, ALUoutFrom3, memOut, dataTo4, DbFrom3, fwdedDa, fwdedDb;
+ /********************************************************************************************************************/
+ reg [1:0] temp, ALUcntrl, ALUcntrlFrom2;
+ buf tem1(temp[0], 1'b0);
+ buf tem2(temp[1], 1'b0);
+ assign address = {addr, temp[1:0]};
+ 
+ assign Op = instr1out[31:26];
+ assign Rs = instr1out[25:21];
+ assign Rt = instr1out[20:16];
+ assign Rd = instr1out[15:11]; 
+ assign imm16 = instr1out[15:0];
+ assign Func =  instr1out[5:0];
+ assign tInstr1 = instr1out[25:0];
+ 
+/*******************************************stage 1*************************************************************/
+//fetch  fetch(addr, tInstr, jumprAddr, zero, branch, jump, jumpR, imm16, reset, clk);
+fetch f (addr, tInstr1, fwdedDa[31:2], zero, branchTo1, jump, jumpR, imm16, reset, clk);
+//instruction
+InstructionMem inst(instruction, address);
+//check if it is brance and set a flag
+checkIfbanch check(Op,branchTo1);
+//save instruction read from stage 1
+register32 regi32(instr1out, instruction, reset, clk);
+//save imm16
+//register16 saveImm16(BranchImm16,imm16,reset,clk);
+//D_FF (q, d, reset, clk);
+//D_FF branchStage1 (branchFrom1, branchTo1, rest, clk);
+/***************************************************************************************************************/
+
+
+/*******************************************stage 2*************************************************************/
+//control 
+control cntrl (RegDst, ALUSrc, MemToRegTo2, RegWr, MemWr,  jump, jumpR, ALUcntrl, Op, Func, XORi ,readRs, readRt);
+//choose desitination of writeto regfile
+genvar m;
+	generate 	
+		for(m = 0; m < 5; m++) begin : dest
+			mux2_r muxs2(Rt[m], Rd[m], RegDst, RegDstTo2[m]);
+		end
+endgenerate
+
+//check if Da and Db are equal
+checkDaDb checkData(fwdedDa, fwdedDb, zero);
+//save RegDstTo2
+register5 regdstto2 (RegDstFrom2, RegDstTo2, reset, clk);
+//regfile(ReadData1, ReadData2, WriteData, ReadRegister1, ReadRegister2, WriteRegister, RegWrite, clk, regi_out);
+regfile reg1(Da, Db, dataFrom4, Rs, Rt, RegDstFrom4, RegWrFrom4, ~clk);
+
+//forwarding unit
+forwardingcntrl fwrd(Da, Db, ALUoutTo3, dataTo4, Rs, Rt, RegDstFrom2, RegDstFrom3, readRs, readRt, fwdedDa, fwdedDb);
+
+//save MemToRegTo2
+D_FF memtoreg2 (MemToRegFrom2, MemToRegTo2, reset, clk);
+//save RegWr
+D_FF regwr2 (RegWrFrom2, RegWr, reset, clk);
+//save MemWr
+D_FF MemWr2 (MemWrFrom2, MemWr, reset, clk);
+//save ALUcntrl
+register2 alufrom2 (ALUcntrlFrom2, ALUcntrl, reset, clk);
+//SE(out, in)
+SE se32(SE_1mm16, imm16);
+genvar i;
+	generate 	
+		for(i = 0; i < 32; i++) begin : alu
+			mux2_r mux2(fwdedDb[i], SE_1mm16[i], ALUSrc, aluDataTo2[i]);
+		end
+endgenerate
+// save aluDataTo2
+register32 aluDatato2 (aluDataFrom2, aluDataTo2, reset, clk);
+//save Da and Db from stage 2
+register32 Dafrom2 (DaFrom2, fwdedDa, reset, clk);
+register32 Dbfrom2 (DbFrom2, fwdedDb, reset, clk);
+/*********************************************************************************************************************/
+
+/*****************************************stage 3*********************************************************************/
+//ALU (A, B, sel, Cout, out, overflow, Z, neg);
+ALU ALU3 (DaFrom2, aluDataFrom2, ALUcntrlFrom2, Cout, ALUoutTo3, overflow, Z, neg);
+//save aluoutTo3
+register32 aluoutto3 (ALUoutFrom3, ALUoutTo3, reset, clk);
+//save RegDstFrom3
+register5 regdstto3 (RegDstFrom3, RegDstFrom2, reset, clk);
+//save MemToRegFrom3
+D_FF memtoreg3 (MemToRegFrom3, MemToRegFrom2, reset, clk);
+//save RegWrFrom3
+D_FF regwr3 (RegWrFrom3, RegWrFrom2, reset, clk);
+//save MemWrFrom3
+D_FF MemWr3 (MemWrFrom3, MemWrFrom2, reset, clk);
+//save DbFrom3
+register32 Db3 (DbFrom3, DbFrom2, reset, clk);
+/**********************************************************************************************************************/
+
+/***************************************stage 4************************************************************************/
+//dataMem(data, address, writedata, writeenable, clk);
+dataMem datamem4 (memOut, ALUoutFrom3, DbFrom3, MemWrFrom3, clk);
+//mux of MemToReg
+genvar j;
+	generate 	
+		for(j = 0; j < 32; j++) begin : alu1
+			mux2_r mux4(ALUoutFrom3[j], memOut[j], MemToRegFrom3, dataTo4[j]);
+		end
+endgenerate
+
+//save dataFrom4
+register32 datato4(dataFrom4, dataTo4, reset, clk);
+
+//save RegWrFrom4
+D_FF regwrfrom4 (RegWrFrom4, RegWrFrom3, reset, clk);
+
+//save RegDstFrom4
+register5 regdstfrom4 (RegDstFrom4, RegDstFrom3, reset, clk);
+/***********************************************************************************************************************/
+endmodule
+
+
+module datapath_testbench();
+reg reset, clk;
+
+	datapath datapath1(.clk, .reset);
+
+	parameter ClockDelay = 1000;
+	initial clk = 1;
+	always begin
+		#(ClockDelay/2); 
+		clk = ~clk;
+	end
+	
+	
+	initial begin
+		reset = 1;  # (ClockDelay/2);
+		reset = 0;  # (ClockDelay/2);# (800*ClockDelay); 
+		$stop();
+	end
+endmodule
